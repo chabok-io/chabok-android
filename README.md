@@ -531,17 +531,15 @@ The user attributes you collect can give you a comprehensive picture of who your
 
 To set user attributes in the Chabok service use `setAttribute` method:
 
-> `Note:` Attributes could be passed as `JSONObject`, `HashMap` or `Bundle`.
-
 ```java
 //Java
 
-Chabok.user().setAttribute(JSONObject);
+Chabok.user().setAttribute("KEY","VALUE");
 ```
 ```kotlin
 //Kotlin
 
-Chabok.user().setAttribute(JSONObject);
+Chabok.user().setAttribute("KEY","VALUE")
 ```
 
 ##### Example
@@ -551,108 +549,12 @@ For example we want to store attributes of a stock trader.
 ```java
 //Java
 
-JSONObject userAttribute = new JSONObject();
-try {
-	userAttribute.put("trades_everyday", true);
-	userAttribute.put("favorite_Stocks", {"Tesla","Facebook"});
-	userAttribute.put("is_vip", true);
-	userAttribute.put("first_trade_date", "18-9-2020");
-	userAttribute.put("last_trade_date", "5-8-2021");
-	userAttribute.put("has_inviter", true);
-	userAttribute.put("inviter_id", "smooke9");
-} catch (JSONException e) {
-    e.printStackTrace();
-}
-
-Chabok.user().setAttribute(userAttribute);
+Chabok.user().setAttribute("City","Karaj");
 ```
 ```kotlin
 //Kotlin
 
-val userAttribute = JSONObject()  
-try {  
-    userAttribute.put("trades_everyday", true)  
-    userAttribute.put("favorite_Stocks", arrayOf("Tesla", "Facebook"))  
-    userAttribute.put("is_vip", true)  
-    userAttribute.put("first_trade_date", "18-9-2020")  
-    userAttribute.put("last_trade_date", "5-8-2021")  
-    userAttribute.put("has_inviter", true)  
-    userAttribute.put("inviter_id", "smooke9")  
-} catch (e: JSONException) {  
-    e.printStackTrace()  
-}  
-  
-Chabok.user().setAttribute(userAttribute)
-```
-
-<br/>
-
-An example with `Hashmap` type:
-
-```java
-//Java
-
-HashMap<String, Object> userAttribute = new HashMap<>();
-userAttribute.put("trades_everyday", true);
-userAttribute.put("favorite_Stocks", {"Tesla","Facebook"});
-userAttribute.put("is_vip", true);
-userAttribute.put("first_trade_date", "18-9-2020");
-userAttribute.put("last_trade_date", "5-8-2021");
-userAttribute.put("has_inviter", true);
-userAttribute.put("inviter_id", "smooke9");
-
-
-Chabok.user().setAttribute(userAttribute);
-```
-```kotlin
-//Kotlin
-
-val userAttribute: HashMap<String, Any> = HashMap()  
-userAttribute["trades_everyday"] = true  
-userAttribute["favorite_Stocks"] = arrayOf("Tesla", "Facebook")  
-userAttribute["is_vip"] = true  
-userAttribute["first_trade_date"] = "18-9-2020"  
-userAttribute["last_trade_date"] = "5-8-2021"  
-userAttribute["has_inviter"] = true  
-userAttribute["inviter_id"] = "smooke9"  
-  
-  
-Chabok.user().setAttribute(userAttribute)
-```
-
-<br/>
-
-An example with `Bundle` type:
-
-```java
-//Java
-
-Bundle userAttribute = new Bundle();
-userAttribute.putBoolean("trades_everyday", true);
-userAttribute.putStringArray("favorite_Stocks", {"Tesla","Facebook"});
-userAttribute.putBoolean("is_vip", true);
-userAttribute.putString("first_trade_date", "18-9-2020");
-userAttribute.putString("last_trade_date", "5-8-2021");
-userAttribute.putBoolean("has_inviter", true);
-userAttribute.putString("inviter_id", "smooke9");
-
-
-Chabok.user().setAttribute(userAttribute);
-```
-```kotlin
-//Kotlin
-
-val userAttribute = Bundle()  
-userAttribute.putBoolean("trades_everyday", true)  
-userAttribute.putStringArray("favorite_Stocks", arrayOf<>("Tesla", "Facebook"))  
-userAttribute.putBoolean("is_vip", true)  
-userAttribute.putString("first_trade_date", "18-9-2020")  
-userAttribute.putString("last_trade_date", "5-8-2021")  
-userAttribute.putBoolean("has_inviter", true)  
-userAttribute.putString("inviter_id", "smooke9")  
-  
-  
-Chabok.user().setAttribute(userAttribute)
+Chabok.user().setAttribute("City","Karaj")
 ```
 
 <br/>
@@ -662,7 +564,7 @@ Set user's attributes method with callback:
 ```java
 //Java
 
-Chabok.user().setAttribute(userAttribute, new Callback() {
+Chabok.user().setAttribute("KEY","VALUE", new Callback() {
 	@Override
 	public void onResponse(boolean success, @Nullable String message) {
 
@@ -672,7 +574,7 @@ Chabok.user().setAttribute(userAttribute, new Callback() {
 ```kotlin
 //Kotlin
 
-Chabok.user().setAttribute(userAttribute, object : Callback {  
+Chabok.user().setAttribute("KEY","VALUE", object : Callback {  
     override fun onResponse(success: Boolean, message: String?) {  
           
     }  
@@ -692,9 +594,9 @@ Profile profile = new Profile.Builder()
                     .mobile("MOBILE") //e.g. 989100360500
                     .name("NAME") //e.g. Hossein
                     .family("FAMILY") //e.g. Shooshtari
-                    .birthDate("BIRTH_DATE") //e.g. 29-02-1372
+                    .birthDate("BIRTH_DATE") //e.g. 1993-05-19
                     .gender(GENDER) //e.g. Gender.MALE
-                    .timeZone(TIME_ZONE) //e.g. +3:30
+                    .timeZone(TIME_ZONE) //e.g. -270(Convert +4:30 to minute then multiply in -1)
                     .build();
 Chabok.user().setProfile(profile);
 ```
@@ -706,9 +608,9 @@ val profile: Profile = Profile.Builder()
 	.mobile("MOBILE") //e.g. 989100360500  
 	.name("NAME") //e.g. Hossein  
 	.family("FAMILY") //e.g. Shooshtari  
-	.birthDate("BIRTH_DATE") //e.g. 29-02-1372  
+	.birthDate("BIRTH_DATE") //e.g. 1993-05-19  
 	.gender(Gender.MALE) //e.g. Gender.MALE  
-	.timeZone("TIME_ZONE") //e.g. +3:30  
+	.timeZone("TIME_ZONE") //e.g. -270(Convert +4:30 to minute then multiply in -1)  
 .build()  
   
 Chabok.user().setProfile(profile)
