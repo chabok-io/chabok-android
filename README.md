@@ -29,7 +29,7 @@ allprojects {
 
     repositories {
         
-        maven { url "https://chabok.jfrog.io/artifactory/Chabok" }
+        mavenCentral()
         
     }
 
@@ -42,7 +42,7 @@ Add the dependency to your app `build.gradle` file.
 ``` groovy
 dependencies {
 
-    implementation 'io.chabok:Chabok:0.10.1'
+    implementation 'io.chabok:Chabok:0.14.5'
     
 }
 ```
