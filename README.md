@@ -1,4 +1,8 @@
 # Chabok android library
+
+[![Maven Central](https://img.shields.io/maven-central/v/io.chabok/Chabok?color=%232596be)](https://maven-badges.herokuapp.com/maven-central/io.chabok/Chabok)
+
+
 Blow some breath to your app with Chabok realtime messaging and receive push notifications cross any platform with zero code. Know your users's better, push them content based on their location or track their presence/location withoud headache.
 Chabok help mobile application marketers to optimize their acquisition campaigns and increase user engagement & retention.
 
